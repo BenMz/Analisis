@@ -19,7 +19,16 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+        //Items del menú
+        $header['nav_items'] = array(
+                    array("link"=>"#b", "name"=>"Link A", "active"=>True),
+                    array("link"=>"#a", "name"=>"Link B")
+                  );
+        $header['title'] = "Homepage";
+		$this->load->view('templates/header', $header);
+        
+        
+        $this->load->view('templates/footer', $header);
 	}
 }
 
