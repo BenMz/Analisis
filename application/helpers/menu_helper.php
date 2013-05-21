@@ -47,17 +47,32 @@ if ( ! function_exists('makeGuestNav'))
  * @param	string el elemento activo
  * @return	void
  */
-if ( ! function_exists('makeGuestNav'))
+if ( ! function_exists('makeClientNav'))
 {
-	function makeClientNav($active)
+	function makeClientNav($title, $active)
 	{
-		$CI =& get_instance();
+        $CI =& get_instance();
+        $CI->load->helper('url');
         //Items del menú
-        $header['nav_items'] = array(
-                    array("link"=>"/login", "name"=>"Login", "active"=>False),
-                    array("link"=>"/register", "name"=>"Sign up", "active"=>False)
-                  );
-        $header['title'] = "Homepage";
-		$CI->load->view('templates/header', $header);
+        $menu_opts = array(
+            array("link"=>base_url("index.php/projects"), "name"=>"Projects"),
+            array("link"=>base_url("index.php/projects/request"), "name"=>"Request Project"),
+            array("link"=>base_url("index.php/users/logout"), "name"=>"Logout")
+        );
+        
+        //Revisamos a cuál ponerle el estado activo
+        for ($i = 0; $i < count($menu_opts); $i++) {
+            if(strcasecmp($active, $menu_opts[$i]['name']) == 0){
+                $menu_opts[$i]['active'] = True;
+            }
+        }
+        
+        //Asignamos meno a datos del header
+        $header['nav_items'] = $menu_opts;
+        
+        
+        $header['title'] = $title;
+        $CI->load->view('templates/header', $header);
+		
 	}
 }
