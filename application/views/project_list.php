@@ -14,7 +14,7 @@
             <tr>
                 <td><?php echo $project['id']?></td>
                 <td>
-                    <a href="<?php echo base_url('/projects/view/'.$project['id'])?>">
+                    <a href="<?php echo base_url('index.php/projects/view/'.$project['id'])?>">
                     <?php echo $project['name']?>
                 </td>
                 <td><?php echo $project['client']?></td>

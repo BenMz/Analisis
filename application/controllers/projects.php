@@ -55,12 +55,22 @@ class Projects extends CI_Controller {
         //La plantilla debe recibir un proyecto de esta forma.
         /**
          *   'id' => int
-         *   'name' => String
+         *   'name' => String proyect name
          *   'client' => String
+         *   'company_name' => String
+         *   'website_name' => String
+         *   'website_url' => string
          *   'status' => int (0:pending, 2:rejected, 3:accepted)
-         *   'description' = String
+         *   'description' = String,
+         *   'colors' => String,
+         *   'website' => String
          * **/
-        $data['project'] = array('id'=>10, 'name'=>"Nombre de proyecto", 'client'=>"Benito", 'status'=>0, 'description' = "Es un proyecto muy innovador... etc.");
+        $data['project'] = array('id'=>10, 'name'=>"Nombre de proyecto", 
+            'client'=>"Benito", 'status'=>0,
+            'company_name' => "Ben Corp", 'website_name' => "Ben eats noobs",
+            'website_url' => "eatnoobs.ben",
+            'description' => "A nice description explaining stuff.",
+            'colors'=>"Red, yellow, poop", 'liked_websites'=>"Google, because it's Google");
         
         //Se carga la plantilla
         $this->load->view('project_view', $data);
