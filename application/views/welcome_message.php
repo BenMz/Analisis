@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Audentio Design Dashboard</title>
-    <?php $this->load->helper('url');?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php  echo base_url('/public/css/bootstrap.min.css')?>" type="text/css" media="screen" rel="stylesheet" />

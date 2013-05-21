@@ -13,10 +13,18 @@
             <?php foreach($projects as $project): ?>
             <tr>
                 <td><?php echo $project['id']?></td>
-                <td><?php echo $project['name']?></td>
+                <td>
+                    <a href="<?php echo base_url('/projects/view/'.$project['id'])?>">
+                    <?php echo $project['name']?>
+                </td>
                 <td><?php echo $project['client']?></td>
-                <td><?php echo $project['accepted']?></td>
-                <td>True</td>
+                <td><?php
+                    switch($project['status']){
+                        case 0 : echo "Pending"; break;
+                        case 1 : echo "Rejected"; break;
+                        case 2 : echo "Accepted"; break;
+                    }
+                ?></td>
             </tr>
             <?php endforeach;?>
         </tbody>

@@ -15,7 +15,6 @@ if ( ! function_exists('makeGuestNav'))
 	function makeGuestNav($title, $active)
 	{
         $CI =& get_instance();
-        $CI->load->helper('url');
         //Items del menú
         $menu_opts = array(
             array("link"=>base_url("index.php/guest/login"), "name"=>"Login"),
@@ -52,7 +51,6 @@ if ( ! function_exists('makeClientNav'))
 	function makeClientNav($title, $active)
 	{
         $CI =& get_instance();
-        $CI->load->helper('url');
         //Items del menú
         $menu_opts = array(
             array("link"=>base_url("index.php/projects"), "name"=>"Projects"),
